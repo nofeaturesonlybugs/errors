@@ -1,0 +1,53 @@
+/develop
+
+0.3.0
+
+    + Bug fix.  Original now returns err if non-nil but not Error defined in this package.
+
+    + Add function(s):
+        + NilMember - Creates an Error when a struct member is nil.
+
+    + Add example(s):
+        + NilMember
+
+    + Documentation fix(es):
+        + NilArgument - Sample code had wrong usage.
+        + NilReceiver - Sample code had wrong usage.
+
+0.2.2
+
+    + Increase code coverage.
+
+0.2.1
+
+    + Increase code coverage.
+
+    + Fix package documentation.
+    
+0.2.0
+
+    + Bug fix.  NilArgument no longer accepts two arguments as the first was useless for
+        determining nil value and type information.
+
+    + Bug fix.  NilReceiver no longer accepts an argument as it was useless for determining
+        nil value and type information.
+
+    + Increase code coverage with tests.
+
+    + Error
+        + Type - Add type method that creates a special Tag() with type information.
+
+0.1.0
+
+    + Add types:
+        + Error - Interface with extended error information.
+        + Frame - Represents a function call frame.
+
+    + Add functions:
+        + AlreadyStarted - Creates an Error for an "already started" service.
+        + Errorf - Creates an Error from a format string and arguments.
+        + Go - Creates an Error and wraps around an existing error.
+        + NilArgument - Creates an Error when a required function argument is nil.
+        + NilReceiver - Creates an Error when a receiver is nil.
+        + Original - Facilitates type checking on the original error type.
+        + Stack - Returns the stack frame with the call to Stack removed.
