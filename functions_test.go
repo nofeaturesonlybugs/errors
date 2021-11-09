@@ -3,6 +3,7 @@ package errors_test
 import (
 	"fmt"
 	"net"
+	"testing"
 
 	"github.com/nofeaturesonlybugs/errors"
 )
@@ -62,4 +63,29 @@ func ExampleOriginal() {
 	// Works when error is error.Error but nil interface.
 	// Got expected *net.OpErr
 	// Original error returned when unwrapped.
+}
+
+func TestIs(t *testing.T) {
+	var ErrFoo = fmt.Errorf("this is a foo error")
+	{
+		e := ErrFoo
+		if !errors.Is(e, ErrFoo) {
+			t.Log("errors.Is(e, ErrFoo) returned false; true expected.")
+			t.Fail()
+		}
+	}
+	{
+		e := errors.Go(ErrFoo)
+		if !errors.Is(e, ErrFoo) {
+			t.Log("errors.Is(e, ErrFoo) returned false; true expected.")
+			t.Fail()
+		}
+	}
+	{
+		e := errors.Errorf("this is a foo error") // Same text but NOT ErrFoo
+		if errors.Is(e, ErrFoo) {
+			t.Log("errors.Is(e, ErrFoo) returned true; false expected.")
+			t.Fail()
+		}
+	}
 }
