@@ -9,7 +9,7 @@ import (
 // e is the internal type that fulfills the Error interface.
 type e struct {
 	message  string
-	original interface{}
+	original error
 	stack    []Frame
 	//
 	tags []*tag
