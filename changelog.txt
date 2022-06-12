@@ -1,5 +1,8 @@
 /develop
 
+1.1.1
+    + Package maintenance.
+
 1.1.0
     + Add Is().  Calls into errors.Is() from standard errors package.
 
